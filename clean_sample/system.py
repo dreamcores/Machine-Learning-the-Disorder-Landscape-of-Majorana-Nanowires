@@ -101,7 +101,7 @@ def sys_conds(B, omega, mu, mu_lead=2*t, t_lead=t):
 
     # right lead
     right = kwant.Builder(kwant.TranslationalSymmetry((1,0)))
-    right[lat.shape(lead_right, (L+2 , 0))]= (2 * t_lead - mu_lead) * kron(tau_z,sigma_0) 
+    right[lat.shape(lead_right, (L+2 , 0))] = (2 * t_lead - mu_lead) * kron(tau_z,sigma_0) 
     right[kwant.builder.HoppingKind((1, 0), lat, lat)] = -t_lead * kron(tau_z,sigma_0)
     sys.attach_lead(right)
     return sys
@@ -145,12 +145,12 @@ def nonlocal_cond(S):
 
 def cal_local_conds(sys,omega):
     smatrix = kwant.smatrix(sys,energy=omega,check_hermiticity=True)
-    cond=local_cond(np.array(smatrix.submatrix(0,0)))
+    cond = local_cond(np.array(smatrix.submatrix(0,0)))
     return cond
 
 def cal_nonlocal_conds(sys,omega):
     smatrix = kwant.smatrix(sys,energy=omega,check_hermiticity=True)
-    cond=nonlocal_cond(np.array(smatrix.submatrix(0,1)))
+    cond = nonlocal_cond(np.array(smatrix.submatrix(0,1)))
     return cond
 
 
